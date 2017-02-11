@@ -9,8 +9,7 @@
 <link href="css/bootstrap.min.css" rel="stylesheet" />
 <link href="css/cubeportfolio.min.css" rel="stylesheet" />
 <link href="css/style.css" rel="stylesheet" />
-<form id="gform" method="POST" class="pure-form pure-form-stacked"
-  action="https://script.google.com/macros/s/AKfycbzHzl5d5B5gkYUehvfP7CZI0oY4d4USHqkZl3Og13SnnVVfZOWw/exec">
+
 
 <!-- Theme skin -->
 <link id="t-colors" href="skins/default.css" rel="stylesheet" />
@@ -81,38 +80,33 @@
 			<div class="col-lg-12">
 				<ul class="breadcrumb">
 					<li><a href="#"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
-					<li class="active">Admission Enquiry</li>
+					<li class="active">Hostel</li>
 				</ul>
 			</div>
 		</div>
 	</div>
 	</section>
 	<section id="content">
-<div class="container">
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				 <hr class="colorgraph"><center>
+				<!-- Content Goes here
+			    <h2>Contact us <small>get in touch with us via e-mail or over phone.</small></h2>
+			    <hr class="colorgraph"><center>
+			    <strong>Master Academy</strong><br>
+					 Plot 295, Manjhi ka Hatha<br>
+					 Behind Sun City Hospital<br>
+					 Jodhpur</address>
+					<p>
+						<i class="icon-phone"></i> 8302283101 / 9530178721 <br>
+						<i class="icon-envelope-alt"></i> masteracademy@gmail.com</center>-->
+                <hr class="colorgraph">
 
-<div class="row">
-	<div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-	<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe-v34ZYtf2YsFj1Y5QmWjSjmv3ZXEDNReGybZwDmbeIS3rRQ/viewform?embedded=true" width="760" height="1500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="t_and_c_m" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-lg">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-				<h4 class="modal-title" id="myModalLabel">Terms & Conditions</h4>
 			</div>
-			<div class="modal-body">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-primary" data-dismiss="modal">I Agree</button>
-			</div>
-		</div><!-- /.modal-content -->
-	</div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-</div>
+		</div>
+	</div>
 	</section>
 	<footer>
 	<div class="container">
@@ -170,11 +164,10 @@
 	</footer>
 </div>
 <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
+
 <!-- javascript
     ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script data-cfasync="false" type="text/javascript"
-  src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-server/master/form-submission-handler.js"></script>
 <script src="js/jquery.min.js"></script>
 <script src="js/modernizr.custom.js"></script>
 <script src="js/jquery.easing.1.3.js"></script>
@@ -186,7 +179,33 @@
 <script src="js/jquery.cubeportfolio.min.js"></script>
 <script src="js/google-code-prettify/prettify.js"></script>
 <script src="js/animate.js"></script>
+<script src="https://maps.google.com/maps/api/js?sensor=true"></script>
 <script src="js/custom.js"></script>
+<script>
+jQuery(document).ready(function( $ ) {
+    
+    //Google Map
+    var get_latitude = $('#google-map').data('latitude');
+    var get_longitude = $('#google-map').data('longitude');
 
+    function initialize_google_map() {
+        var myLatlng = new google.maps.LatLng(get_latitude, get_longitude);
+        var mapOptions = {
+            zoom: 14,
+            scrollwheel: false,
+            center: myLatlng
+        };
+        var map = new google.maps.Map(document.getElementById('google-map'), mapOptions);
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            map: map
+        });
+    }
+    google.maps.event.addDomListener(window, 'load', initialize_google_map);
+    
+});
+</script>
+
+	
 </body>
 </html>
